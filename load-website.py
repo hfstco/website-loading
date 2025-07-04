@@ -17,7 +17,7 @@ server_config = {
 def start_picoquic(server: pxssh):
     server.sendline('cd ~/website-loading/picoquic')
     server.prompt()
-    server.sendline('sudo ./picoquicdemo -p 50043 -1 -q ./qlogs -w ../www -k /etc/letsencrypt/live/h3.hfst.dev/privkey.pem -c /etc/letsencrypt/live/h3.hfst.dev/cert.pem')
+    server.sendline('PREVIOUS_CWND_BYTES=3750000 PREVIOUS_RTT=600000 sudo ./picoquicdemo -p 50043 -1 -q ./qlogs -w ../www -k /etc/letsencrypt/live/h3.hfst.dev/privkey.pem -c /etc/letsencrypt/live/h3.hfst.dev/cert.pem')
     server.expect('Waiting for packets.')
 
 def stop_picoquic(server: pxssh):
@@ -92,9 +92,9 @@ def main():
 
                 h3_perf_timings.append(perf_timing)
 
-    with open('h2_perf_timings.json', 'w') as file:
+    with open('skydsl/h2_perf_timings.json', 'w') as file:
         json.dump(h2_perf_timings, file)
-    with open('h3_perf_timings.json', 'w') as file:
+    with open('skydsl/h3_perf_timings.json', 'w') as file:
         json.dump(h3_perf_timings, file)
 
     server.close()
