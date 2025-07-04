@@ -41,6 +41,8 @@ def run_chrome(url: str, use_quic: bool):
     options.add_argument('--headless')
     options.add_argument('--no-gpu')
     options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--verbose')
     if use_quic:
         options.add_argument("--enable-quic")
         options.add_argument(f"--origin-to-force-quic-on={urlparse(url).hostname}:{urlparse(url).port}")
