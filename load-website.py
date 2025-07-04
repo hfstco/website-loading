@@ -17,7 +17,7 @@ server_config = {
 def start_picoquic(server: pxssh):
     server.sendline('cd ~/website-loading/picoquic')
     server.prompt()
-    server.sendline('PREVIOUS_CWND_BYTES=3750000 PREVIOUS_RTT=600000 sudo ./picoquicdemo -p 50043 -1 -q ./qlogs -w ../www -k /etc/letsencrypt/live/h3.hfst.dev/privkey.pem -c /etc/letsencrypt/live/h3.hfst.dev/cert.pem -G cubic')
+    server.sendline('PREVIOUS_CWND_BYTES=3750000 PREVIOUS_RTT=600000 sudo -E ./picoquicdemo -p 50043 -1 -q ./qlogs -w ../www -k /etc/letsencrypt/live/h3.hfst.dev/privkey.pem -c /etc/letsencrypt/live/h3.hfst.dev/cert.pem -G cubic')
     server.expect('Waiting for packets.')
 
 def stop_picoquic(server: pxssh):
