@@ -40,6 +40,7 @@ def run_chrome(url: str, use_quic: bool):
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     options.add_argument('--no-gpu')
+    options.add_argument('--no-sandbox')
     if use_quic:
         options.add_argument("--enable-quic")
         options.add_argument(f"--origin-to-force-quic-on={urlparse(url).hostname}:{urlparse(url).port}")
