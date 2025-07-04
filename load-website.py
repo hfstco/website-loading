@@ -71,7 +71,7 @@ def main():
     h2_perf_timings = []
 
     server = pxssh.pxssh(logfile=sys.stdout, encoding='utf-8')
-    server.login(server_config["hostname"], server_config["username"], server_config["port"], login_timeout=10)
+    server.login(server_config["hostname"], server_config["username"], server_config["port"], sync_multiplier=10)
 
     for i in range(10):
         for t in ["h2", "h3"]:
