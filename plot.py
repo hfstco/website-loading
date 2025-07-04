@@ -15,6 +15,4 @@ fig, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 sns.boxplot(y='loadingTime', hue="type", data=df)
 
-plt.savefig('plot.svg', format='svg')
-
-
+plt.savefig('plot.svg')
