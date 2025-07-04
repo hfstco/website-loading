@@ -92,9 +92,9 @@ def main():
 
                 h3_perf_timings.append(perf_timing)
 
-    with open('skydsl/h2_perf_timings.json', 'w') as file:
+    with open('h2_perf_timings.json', 'w') as file:
         json.dump(h2_perf_timings, file)
-    with open('skydsl/h3_perf_timings.json', 'w') as file:
+    with open('h3_perf_timings.json', 'w') as file:
         json.dump(h3_perf_timings, file)
 
     server.close()
