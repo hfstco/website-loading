@@ -20,5 +20,10 @@ fig, ax = plt.subplots(1, 1, figsize=(12, 6))
 
 sns.boxplot(y='loadingTime', x="provider", hue="type", data=df, ax=ax)
 
+plt.ylabel("Loading time (ms)")
+plt.xlabel("")
+
+plt.tight_layout()
+
 plt.show()
 plt.savefig('plot.svg')

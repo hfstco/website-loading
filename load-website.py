@@ -80,7 +80,7 @@ def main():
             if t == "h2":
                 start_nginx(server)
 
-                perf_timing = run_chrome("https://h2.hfst.dev:50044", False)
+                perf_timing = run_chrome("https://h2.hfst.dev:50044/?res=low&cols=4&rows=6", False)
 
                 stop_nginx(server)
 
@@ -88,7 +88,7 @@ def main():
             elif t == "h3":
                 start_picoquic(server)
 
-                perf_timing = run_chrome("https://h3.hfst.dev:50043", True)
+                perf_timing = run_chrome("https://h3.hfst.dev:50043/?res=low&cols=4&rows=6", True)
 
                 h3_perf_timings.append(perf_timing)
 
